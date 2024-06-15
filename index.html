@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpotyGen</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0e0e0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+        h1 {
+            color: #1DB954;
+        }
+        input[type="text"], input[type="password"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #1DB954;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #17a74a;
+        }
+        .account {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f1f1f1;
+            border-radius: 4px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+<h1>Comptes Spotify - Beta</h1> </p>
+Appuyez sur le bouton "Générer" pour générer <p></p>
+<img src="c:\Users\aaron\Downloads\app-spotify_1x.png"> <p></p>
+        <button onclick="generateAccount()">Générer</button>
+        <div class="account" id="account"> <p></p>
+            <p><strong>Nom d'utilisateur :</strong> <span id="gen-username"></span></p>
+            <p><strong>Mot de passe :</strong> <span id="gen-password"></span></p>
+        </div>
+    </div>
+
+    <script>
+        function generateAccount() {
+            // Génère un nom d'utilisateur et un mot de passe réel
+            const username = "cptspotygen" + Math.floor(Math.random() * 10000);
+            const password = "mdpspotygen" + Math.floor(Math.random() * 10000);
+
+            // Affiche les informations générées
+            document.getElementById('gen-username').innerText = username;
+            document.getElementById('gen-password').innerText = password;
+            document.getElementById('account').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
