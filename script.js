@@ -4,7 +4,7 @@ const responses = {
     "comment ça va": "Je suis juste un programme, mais merci de demander!", 
     "quel est ton nom": "Je suis Nexus IA créé en 2024 par Nexus Global.", 
     "que fais tu": "Je réponds aux questions que vous me posez.", 
-    "quelle est la capitale de la France": "La capitale de la France est Paris." 
+    "quelle est la capitale de la france": "La capitale de la France est Paris." 
 };
 
 function sendMessage() {
