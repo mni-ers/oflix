@@ -1,10 +1,13 @@
 // script.js
 const responses = {
     "bonjour": "Bonjour! Comment puis-je vous aider?", 
-    "comment ça va": "Je suis juste un programme, mais merci de demander!", 
-    "quel est ton nom": "Je suis Nexus IA créé en 2024 par Nexus Global.", 
+    "comment ça va": "Jen'est pas de sentiment, mais merci de demander!",
+    "comment vas-tu": "Jen'est pas de sentiment, mais merci de demander!",
+    "quel est ton nom": "Je suis Nexus IA créé en 2024 par 720 & Blasterjaxx.",
+    "comment tu t'appelles": "Je suis Nexus IA créé en 2024 par 720 & Blasterjaxx.",
     "que fais tu": "Je réponds aux questions que vous me posez.", 
-    "quelle est la capitale de la france": "La capitale de la France est Paris." 
+    "quelle est la capitale de la france": "La capitale de la France est Paris."
+    "quel temps fait-il": "Voici le temps: www.msn.com/fr-fr/meteo", 
 };
 
 function sendMessage() {
