@@ -1,5 +1,6 @@
 // script.js
 const responses = {
+    "donne moi une playlist": "Oui vvoila une playlist des années 2023/02024 qui pourrait te plaire: https://open.spotify.com/playlist/37i9dQZEVXbIPWwFssbupI",
     "il est quelle heure": "Voici l'heure avec: dayspedia.com/time",
     "salut": "Salut ! Comment puis-je vous aider ?", 
     "bonjour": "Bonjour ! Comment puis-je vous aider ?", 
