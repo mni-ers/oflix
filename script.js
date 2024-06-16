@@ -1,50 +1,34 @@
-document.getElementById('send-btn').addEventListener('click', sendMessage);
-document.getElementById('user-input').addEventListener('keypress', function(event) {
-    if (event.key === 'Enter') {
-        sendMessage();
-    }
-});
+// script.js
+const responses = {
+    "bonjour": "Bonjour! Comment puis-je vous aider?",
+    "comment ça va": "Je suis juste un programme, mais merci de demander!",
+    "quel est ton nom": "Je suis un chatbot simple créé en JavaScript.",
+    "que fais tu": "Je réponds aux questions que vous me posez.",
+    "quelle est la capitale de la France": "La capitale de la France est Paris."
+};
 
 function sendMessage() {
-    const userInput = document.getElementById('user-input').value;
-    if (userInput.trim() === '') return;
-
-    displayMessage(userInput, 'user');
-    document.getElementById('user-input').value = '';
-
-    processCommand(userInput);
+    const userInput = document.getElementById('user-input');
+    const message = userInput.value.trim().toLowerCase();
+    if (message) {
+        addMessageToChatBox(message, 'user-message');
+        userInput.value = '';
+        setTimeout(() => {
+            const response = getResponse(message);
+            addMessageToChatBox(response, 'bot-message');
+        }, 1000);
+    }
 }
 
-function displayMessage(message, sender) {
+function getResponse(message) {
+    return responses[message] || "Je suis désolé, je ne comprends pas la question.";
+}
+
+function addMessageToChatBox(message, className) {
     const chatBox = document.getElementById('chat-box');
     const messageElement = document.createElement('div');
-    messageElement.classList.add('message', sender);
+    messageElement.className = 'message ' + className;
     messageElement.textContent = message;
     chatBox.appendChild(messageElement);
     chatBox.scrollTop = chatBox.scrollHeight;
-}
-
-function processCommand(command) {
-    let response = '';
-
-    // Ajoutez ici votre logique de traitement des commandes
-    switch (command.toLowerCase()) {
-        case 'bonjour':
-            response = 'Bonjour ! Comment puis-je vous aider aujourd\'hui ?';
-            break;
-        case 'aide':
-            response = 'Voici quelques commandes que vous pouvez essayer : bonjour, aide, heure, date.';
-            break;
-        case 'heure':
-            response = `Il est actuellement ${new Date().toLocaleTimeString()}.`;
-            break;
-        case 'date':
-            response = `Nous sommes le ${new Date().toLocaleDateString()}.`;
-            break;
-        default:
-            response = 'Commande non reconnue. Essayez "aide" pour voir les commandes disponibles.';
-            break;
-    }
-
-    displayMessage(response, 'bot');
 }
