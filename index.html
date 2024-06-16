@@ -1,11 +1,19 @@
-Nexus IA<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nexus IA</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
 <body>
-    <div class="chat-input-container">
-        <input type="text" id="chat-input" class="chat-input" placeholder="Tapez votre message...">
-        <button class="send-button" onclick="sendMessage()">Envoyer</button>
+    <div class="chat-container">
+        <div class="chat-box" id="chat-box">
+            <div class="message bot-message">NexusIA</div>
+        </div>
+        <input type="text" id="user-input" placeholder="Tapez votre message ici..." onkeydown="if(event.key === 'Enter') sendMessage()">
+        <button onclick="sendMessage()">Envoyer</button>
     </div>
+    <script src="script.js"></script>
+</body>
+</html>
