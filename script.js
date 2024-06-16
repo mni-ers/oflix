@@ -24,7 +24,7 @@ function sendMessage() {
 }
 
 function getResponse(message) {
-    return responses[message] || "Je suis désolé, je ne comprends pas la question.";
+    return responses[message] || "Je suis désolé, je ne suis pas en mesure de comprendre cette question.";
 }
 
 function addMessageToChatBox(message, className) {
