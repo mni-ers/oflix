@@ -6,8 +6,8 @@ const responses = {
     "quel est ton nom": "Je suis Nexus IA créé en 2024 par 720 & Blasterjaxx.",
     "comment tu t'appelles": "Je suis Nexus IA créé en 2024 par 720 & Blasterjaxx.",
     "que fais tu": "Je réponds aux questions que vous me posez.", 
-    "quelle est la capitale de la france": "La capitale de la France est Paris."
-    "quel temps fait-il": "Voici le temps: www.msn.com/fr-fr/meteo", 
+    "quelle est la capitale de la france": "La capitale de la France est Paris.",
+    "quel temps fait-il": "Voici le temps: www.msn.com/fr-fr/meteo"
 };
 
 function sendMessage() {
