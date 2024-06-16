@@ -1,5 +1,6 @@
 // script.js
 const responses = {
+    "il est quelle heure": "Voici l'heure avec: dayspedia.com/time",
     "salut": "Salut ! Comment puis-je vous aider ?", 
     "bonjour": "Bonjour ! Comment puis-je vous aider ?", 
     "comment ça va": "Jen'est pas de sentiment, mais merci de demander!",
@@ -11,7 +12,7 @@ const responses = {
     "comment tu t'appelles": "Je suis Nexus IA créé en 2024 par 720 & Blasterjaxx.",
     "que fais tu": "Je réponds aux questions que vous me posez.", 
     "quelle est la capitale de la france": "La capitale de la France est Paris.",
-    "quel temps fait-il": "Voici le temps: www.msn.com/fr-fr/meteo"
+    "quel temps fait-il": "Voici la météo avec: www.msn.com/fr-fr/meteo"
 };
 
 function sendMessage() {
