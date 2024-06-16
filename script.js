@@ -1,10 +1,10 @@
 // script.js
 const responses = {
-    "bonjour": "Bonjour! Comment puis-je vous aider?",
-    "comment ça va": "Je suis juste un programme, mais merci de demander!",
-    "quel est ton nom": "Je suis un chatbot simple créé en JavaScript.",
-    "que fais tu": "Je réponds aux questions que vous me posez.",
-    "quelle est la capitale de la France": "La capitale de la France est Paris."
+    "bonjour": "Bonjour! Comment puis-je vous aider?", 
+    "comment ça va": "Je suis juste un programme, mais merci de demander!", 
+    "quel est ton nom": "Je suis Nexus IA créé en 2024 par Nexus Global.", 
+    "que fais tu": "Je réponds aux questions que vous me posez.", 
+    "quelle est la capitale de la France": "La capitale de la France est Paris." 
 };
 
 function sendMessage() {
