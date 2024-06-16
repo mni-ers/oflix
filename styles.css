@@ -1,6 +1,4 @@
-    <style>
-        body {
-            background-color: #121212;
+background-color: #121212;
             color: #ffffff;
             font-family: Arial, sans-serif;
             margin: 0;
@@ -59,6 +57,3 @@
         .send-button:hover {
             background-color: #3700b3;
         }
-    </style>
-</head>
-<body>
