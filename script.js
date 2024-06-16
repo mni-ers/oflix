@@ -15,6 +15,8 @@ const responses = {
     "comment vas-tu": "Je n'est pas de sentiment car je suis fait de ligne de programme, mais merci de demander ! Et vous ?",
     "oui je vais bien": "Tant mieux, en quoi puis-je vous aider ?",
     "oui": "Tant mieux, en quoi puis-je vous aider ?",
+    "je vais bien merci": "Avec plaisir ! En quoi puis-je vous aider ?",
+    "je vais bien": "Tant mieux, en quoi puis-je vous aider ?",
     "non": "Ah mince, en quoi puis-je vous aider ?",
     "quel est ton nom": "Je suis Nexus IA créé en 2024 par 720.exe & Blasterjaxx.",
     "comment tu t'appelles": "Je suis Nexus IA créé en 2024 par 720 & Blasterjaxx.",
