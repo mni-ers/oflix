@@ -1,59 +1,62 @@
-background-color: #121212;
-            color: #ffffff;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
-        }
-        .chat-container {
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-            padding: 20px;
-            overflow-y: auto;
-        }
-        .chat-bubble {
-            max-width: 60%;
-            margin: 10px 0;
-            padding: 10px;
-            border-radius: 10px;
-            position: relative;
-        }
-        .user {
-            align-self: flex-end;
-            background-color: #6200ea;
-            text-align: right;
-        }
-        .bot {
-            align-self: flex-start;
-            background-color: #333;
-        }
-        .chat-input-container {
-            display: flex;
-            padding: 10px;
-            background-color: #1e1e1e;
-        }
-        .chat-input {
-            flex-grow: 1;
-            padding: 10px;
-            border: none;
-            border-radius: 4px;
-            margin-right: 10px;
-            color: #ffffff;
-            background-color: #333;
-        }
-        .chat-input::placeholder {
-            color: #bbb;
-        }
-        .send-button {
-            background-color: #6200ea;
-            color: #ffffff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .send-button:hover {
-            background-color: #3700b3;
-        }
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f4;
+}
+
+.chat-container {
+    width: 400px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.chat-box {
+    height: 300px;
+    overflow-y: auto;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.message {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.bot-message {
+    background-color: #e0e0e0;
+}
+
+.user-message {
+    background-color: #0084ff;
+    color: #fff;
+    text-align: right;
+}
+
+input[type="text"] {
+    width: calc(100% - 60px);
+    padding: 10px;
+    border: none;
+    border-top: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+button {
+    width: 60px;
+    padding: 10px;
+    border: none;
+    background-color: #0084ff;
+    color: #fff;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #006bbf;
+}
