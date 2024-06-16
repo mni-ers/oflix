@@ -2,11 +2,11 @@
 const responses = {
     "bonjour": "Bonjour ! Comment puis-je vous aider ?", 
     "comment ça va": "Jen'est pas de sentiment, mais merci de demander!",
-    "comment vas-tu": "Je n'est pas de sentiment car je suis fait de ligne de programme, mais merci de demander ! Et toi ?",
+    "comment vas-tu": "Je n'est pas de sentiment car je suis fait de ligne de programme, mais merci de demander ! Et vous ?",
     "Oui je vais bien": "Tant mieux, en quoi puis-je vous aider ?",
     "Oui": "Tant mieux, en quoi puis-je vous aider ?",
     "Non": "Ah mince, en quoi puis-je vous aider ?",
-    "quel est ton nom": "Je suis Nexus IA créé en 2024 par 720 & Blasterjaxx.",
+    "quel est ton nom": "Je suis Nexus IA créé en 2024 par 720.exe & Blasterjaxx.",
     "comment tu t'appelles": "Je suis Nexus IA créé en 2024 par 720 & Blasterjaxx.",
     "que fais tu": "Je réponds aux questions que vous me posez.", 
     "quelle est la capitale de la france": "La capitale de la France est Paris.",
