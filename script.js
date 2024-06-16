@@ -7,7 +7,7 @@ const responses = {
     "d'accord": "Comment puis-je vous aider ?",
     "dit moi les actualités en france": "Guerre en Ukraine : Zelensky fait le plein de soutien international et accable la Russie, pas prête à une « paix juste » La suite avec: https://www.msn.com/fr-fr/actualite",
     "l'été commence quand": "L'été débute le 21 juin. C'est aussi le jour de la fête de la musique. Tu as d'autre question ?",
-    "donne moi une playlist": "Oui voila une playlist des années 2023/02024 qui pourrait te plaire: https://open.spotify.com/playlist/37i9dQZEVXbIPWwFssbupI",
+    "donne moi une playlist": "Oui voila une playlist des années 2023/2024 qui pourrait te plaire: https://open.spotify.com/playlist/37i9dQZEVXbIPWwFssbupI",
     "il est quelle heure": "Voici l'heure avec: dayspedia.com/time",
     "salut": "Salut ! Comment puis-je vous aider ?", 
     "bonjour": "Bonjour ! Comment puis-je vous aider ?", 
