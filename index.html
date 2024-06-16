@@ -3,79 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SpotyGen</title>
+    <title>Nexus IA</title>
     <style>
         body {
+            background-color: #121212;
+            color: #ffffff;
             font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
             margin: 0;
-            padding: 0;
             display: flex;
-            justify-content: center;
-            align-items: center;
+            flex-direction: column;
             height: 100vh;
         }
-        .container {
-            background-color: white;
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
             padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            text-align: center;
-            max-width: 400px;
-            width: 100%;
+            overflow-y: auto;
         }
-        h1 {
-            color: #587dc2;
-        }
-        input[type="text"], input[type="password"] {
-            width: calc(100% - 20px);
-            padding: 10px;
+        .chat-bubble {
+            max-width: 60%;
             margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 4px;
+            padding: 10px;
+            border-radius: 10px;
+            position: relative;
         }
-        button {
-            background-color: #587dc2;
-            color: white;
+        .user {
+            align-self: flex-end;
+            background-color: #6200ea;
+            text-align: right;
+        }
+        .bot {
+            align-self: flex-start;
+            background-color: #333;
+        }
+        .chat-input-container {
+            display: flex;
+            padding: 10px;
+            background-color: #1e1e1e;
+        }
+        .chat-input {
+            flex-grow: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            margin-right: 10px;
+            color: #ffffff;
+            background-color: #333;
+        }
+        .chat-input::placeholder {
+            color: #bbb;
+        }
+        .send-button {
+            background-color: #6200ea;
+            color: #ffffff;
             border: none;
             padding: 10px 20px;
             border-radius: 4px;
             cursor: pointer;
         }
-        button:hover {
-            background-color: #729eb3;
-        }
-        .account {
-            margin-top: 20px;
-            padding: 10px;
-            background-color: #f1f1f1;
-            border-radius: 4px;
-            display: none;
+        .send-button:hover {
+            background-color: #3700b3;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-<h1>Disney Plus - Beta</h1> </p>
-Appuyez sur le bouton "Générer" pour générer <p></p>    
-        <button onclick="generateAccount()">Générer</button>
-        <div class="account" id="account"> <p></p>
-            <p><strong>Email :</strong> <span id="gen-username"></span></p>
-            <p><strong>Mot de passe :</strong> <span id="gen-password"></span></p>
-        </div>
+    <div class="chat-container" id="chat-container">
+        <!-- Les bulles de chat seront ajoutées ici -->
+    </div>
+
+    <div class="chat-input-container">
+        <input type="text" id="chat-input" class="chat-input" placeholder="Tapez votre message...">
+        <button class="send-button" onclick="sendMessage()">Envoyer</button>
     </div>
 
     <script>
-        function generateAccount() {
-            // Génère un nom d'utilisateur et un mot de passe réel
-            const username = "mikosnorbert@icloud.com"
-            const password = "Mn362514987"
-
-            // Affiche les informations générées
-            document.getElementById('gen-username').innerText = username;
-            document.getElementById('gen-password').innerText = password;
-            document.getElementById('account').style.display = 'block';
+        function addChatBubble(message, className) {
+            const chatContainer = document.getElementById('chat-container');
+            const chatBubble = document.createElement('div');
+            chatBubble.className = 'chat-bubble ' + className;
+            chatBubble.textContent = message;
+            chatContainer.appendChild(chatBubble);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
         }
+
+        function sendMessage() {
+            const chatInput = document.getElementById('chat-input');
+            const message = chatInput.value.trim();
+            if (message) {
+                addChatBubble(message, 'user');
+                chatInput.value = '';
+                saveMessage('user', message);
+                simulateBotResponse(message);
+            }
+        }
+
+        function simulateBotResponse(userMessage) {
+            // Simule une réponse du bot après un délai
+            setTimeout(() => {
+                const botResponse = getBotResponse(userMessage);
+                addChatBubble(botResponse, 'bot');
+                saveMessage('bot', botResponse);
+            }, 1000);
+        }
+
+        function getBotResponse(userMessage) {
+            // Fonction simplifiée pour générer des réponses du bot
+            const responses = {
+                'Quelle temps fait-il ?' : 'Pour savoir le temps je vous conseil: www.msn.com/fr-fr/meteo'
+                'comment vas-tu ?' : 'Je vais bien, merci',
+                'bonjour': 'Bonjour ! Comment puis-je vous aider aujourd\'hui ?',
+               
+                // Ajoutez plus de paires clé-valeur pour des réponses plus variées
+            };
+            userMessage = userMessage.toLowerCase();
+            return responses[userMessage] || 'Désolé, je ne suis pas en mesure de répondre à cette question.';
+        }
+
+        function saveMessage(sender, message) {
+            let chatHistory = JSON.parse(localStorage.getItem('chatHistory')) || [];
+            chatHistory.push({ sender, message });
+            localStorage.setItem('chatHistory', JSON.stringify(chatHistory));
+        }
+
+        function loadChatHistory() {
+            const chatHistory = JSON.parse(localStorage.getItem('chatHistory')) || [];
+            chatHistory.forEach(entry => {
+                addChatBubble(entry.message, entry.sender);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadChatHistory();
+
+            // Permettre l'envoi du message en appuyant sur Entrée
+            document.getElementById('chat-input').addEventListener('keydown', function(event) {
+                if (event.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+        });
     </script>
 </body>
 </html>
