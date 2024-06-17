@@ -1,0 +1,12 @@
+from transformers import pipeline
+
+# Chargement du modèle pré-entraîné pour le QA
+qa_pipeline = pipeline("question-answering")
+
+# Exemple de question
+question = "Qui a écrit 'Les Misérables'?"
+context = "Les Misérables est un roman de Victor Hugo, publié en 1862."
+
+# Réponse de l'IA
+result = qa_pipeline(question=question, context=context)
+print(f"Réponse : {result['answer']}")
