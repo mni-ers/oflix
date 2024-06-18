@@ -3,38 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Web Super Belle</title>
+    <title>Page Web Moderne et Esthétique</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        nav {
+            background-color: #444;
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 1.2em;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #ffd700;
+        }
+        main {
+            padding: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        section {
+            margin: 40px 0;
+        }
+        section h2 {
+            text-align: center;
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        section p {
+            text-align: justify;
+            font-size: 1.1em;
+            line-height: 1.6em;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1 style="text-align: center; font-size: 2.5em; color: #2c3e50;">Bienvenue sur Ma Page Web</h1>
+        <h1>Bienvenue sur Ma Page Web</h1>
     </header>
-    <nav style="text-align: center; margin-top: 20px;">
-        <a href="#home" style="margin: 0 15px; font-size: 1.2em;">Accueil</a>
-        <a href="#about" style="margin: 0 15px; font-size: 1.2em;">À Propos</a>
-        <a href="#services" style="margin: 0 15px; font-size: 1.2em;">Services</a>
-        <a href="#contact" style="margin: 0 15px; font-size: 1.2em;">Contact</a>
+    <nav>
+        <a href="#home">Accueil</a>
+        <a href="#about">À Propos</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
     </nav>
-    <main style="margin: 40px 20px;">
+    <main>
         <section id="home">
-            <h2 style="text-align: center; color: #34495e;">Accueil</h2>
-            <p style="text-align: justify; font-size: 1.1em;">Bienvenue sur ma page web personnelle. Ici, vous trouverez des informations sur moi, mes services et comment me contacter.</p>
+            <h2>Accueil</h2>
+            <p>Bienvenue sur ma page web personnelle. Ici, vous trouverez des informations sur moi, mes services et comment me contacter.</p>
         </section>
-        <section id="about" style="margin-top: 40px;">
-            <h2 style="text-align: center; color: #34495e;">À Propos</h2>
-            <p style="text-align: justify; font-size: 1.1em;">Je suis un développeur web passionné avec plusieurs années d'expérience. J'aime créer des sites web élégants et fonctionnels.</p>
+        <section id="about">
+            <h2>À Propos</h2>
+            <p>Je suis un développeur web passionné avec plusieurs années d'expérience. J'aime créer des sites web élégants et fonctionnels.</p>
         </section>
-        <section id="services" style="margin-top: 40px;">
-            <h2 style="text-align: center; color: #34495e;">Services</h2>
-            <p style="text-align: justify; font-size: 1.1em;">Je propose une gamme de services allant du développement web à la maintenance de sites existants. Mon objectif est de fournir des solutions sur mesure à mes clients.</p>
+        <section id="services">
+            <h2>Services</h2>
+            <p>Je propose une gamme de services allant du développement web à la maintenance de sites existants. Mon objectif est de fournir des solutions sur mesure à mes clients.</p>
         </section>
-        <section id="contact" style="margin-top: 40px;">
-            <h2 style="text-align: center; color: #34495e;">Contact</h2>
-            <p style="text-align: justify; font-size: 1.1em;">Vous pouvez me contacter via email à <a href="lyah8998@gmail.com" style="color: #2980b9;">lyah8998@gmail.com</a>.</p>
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Vous pouvez me contacter via email à <a href="mailto:example@example.com" style="color: #007BFF;">example@example.com</a>.</p>
         </section>
     </main>
-    <footer style="text-align: center; margin-top: 40px; padding: 20px; background-color: #ecf0f1;">
-        <p>&copy; 2024 Nexus IA. Tous droits réservés.</p>
+    <footer>
+        <p>&copy; 2024 Ma Page Web. Tous droits réservés.</p>
     </footer>
 </body>
 </html>
