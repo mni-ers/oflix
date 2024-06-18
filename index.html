@@ -16,3 +16,58 @@
 Tapez votre question ou mot-clé de manière claire et concise <p> 
             Appuyez sur l’icône de loupe à droite de la barre de recherche.
 Patientez quelques instants pendant que Nexus IA traite votre recherche</center>
+
+            <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        .search-container {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .search-bar {
+            width: 100%;
+            display: flex;
+            border: 2px solid #ddd;
+            border-radius: 25px;
+            overflow: hidden;
+        }
+        .search-bar input {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+        }
+        .search-bar button {
+            padding: 10px 15px;
+            border: none;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+        }
+        .search-bar button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="search-container">
+    <form class="search-bar" action="/search" method="GET">
+        <input type="text" name="query" placeholder="Tapez votre recherche ici...">
+        <button type="submit">Rechercher</button>
+    </form>
+</div>
+
+</body>
+</html>
