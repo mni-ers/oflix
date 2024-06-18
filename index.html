@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexus IA</title>
+    <title>Nexus IA v1.1</title>
     <style>
         body {
             margin: 0;
@@ -15,58 +15,78 @@
             min-height: 100vh;
         }
         header {
-            background-color: #6200ea;
+            background: linear-gradient(to right, #6200ea, #3700b3);
             color: white;
-            padding: 20px 0;
+            padding: 40px 0;
             text-align: center;
             border-bottom-left-radius: 50px;
             border-bottom-right-radius: 50px;
+            position: relative;
         }
         header h1 {
             margin: 0;
-            font-size: 2.5em;
+            font-size: 3em;
+            font-weight: bold;
+        }
+        header p {
+            margin: 10px 0 0;
+            font-size: 1.2em;
         }
         nav {
-            background-color: #3700b3;
+            background-color: #ffffff;
             display: flex;
             justify-content: center;
-            padding: 10px 0;
+            padding: 15px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             border-bottom-left-radius: 50px;
             border-bottom-right-radius: 50px;
+            margin-top: -30px;
+            position: relative;
+            z-index: 1;
         }
         nav a {
-            color: white;
-            margin: 0 15px;
+            color: #6200ea;
+            margin: 0 20px;
             text-decoration: none;
             font-size: 1.2em;
+            font-weight: bold;
             transition: color 0.3s;
         }
         nav a:hover {
-            color: #ffd700;
+            color: #3700b3;
         }
         main {
-            padding: 20px;
+            padding: 40px 20px;
             max-width: 1200px;
             margin: 0 auto;
             flex: 1;
         }
         section {
             margin: 40px 0;
-            padding: 20px;
+            padding: 30px;
             background: white;
             border-radius: 25px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        section:hover {
+            transform: translateY(-10px);
         }
         section h2 {
             text-align: center;
             color: #6200ea;
-            font-size: 2em;
+            font-size: 2.5em;
             margin-bottom: 20px;
         }
         section p {
             text-align: justify;
-            font-size: 1.1em;
-            line-height: 1.6em;
+            font-size: 1.2em;
+            line-height: 1.8em;
+        }
+        section a {
+            color: #6200ea;
+            text-decoration: none;
+            font-weight: bold;
         }
         footer {
             background-color: #6200ea;
@@ -81,6 +101,7 @@
 <body>
     <header>
         <h1>Bienvenue sur Nexus IA</h1>
+        <p>Votre source de solutions web modernes et élégantes</p>
     </header>
     <nav>
         <a href="#home">Accueil</a>
@@ -103,7 +124,7 @@
         </section>
         <section id="contact">
             <h2>Contact</h2>
-            <p>Vous pouvez me contacter via email à <a href="mailto:example@example.com" style="color: #6200ea;">example@example.com</a>.</p>
+            <p>Vous pouvez me contacter via email à <a href="mailto:example@example.com">example@example.com</a>.</p>
         </section>
     </main>
     <footer>
