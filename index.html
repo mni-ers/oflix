@@ -13,31 +13,6 @@
            <midlle> <center> <div class="message bot-message"> Nexus IA, Bonjour </center> </midlle>
             <midlle> <center> <div class="message bot-message"> Votre assistant intelligent pour simplifier vos tâches quotidiennes </center> </midlle>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Afficher l'adresse IP</title>
-    <script>
-        async function afficherIP() {
-            try {
-                // Utilisation d'une API publique pour obtenir l'adresse IP
-                const response = await fetch('https://api.ipify.org/?format=json');
-                const data = await response.json();
-                // Afficher l'adresse IP dans l'élément avec l'ID 'ip'
-                document.getElementById('ip').innerText = Votre adresse IP est : Votre adresse IP est : 173.155.1.5;
-            } catch (error) {
-                console.error('Erreur lors de la récupération de l'adresse IP:', error);
-            }
-        }
-    </script>
-</head>
-<body>
-    <button onclick="afficherIP()">Afficher mon adresse IP</button>
-    <p id="ip"></p>
-</body>
-            
-        </div>
-        
 <div class="gcse-search"></div>
         <button onclick="sendMessage()"><script async src="https://cse.google.com/cse.js?cx=076a5f70a5c72440d">
 </script>
