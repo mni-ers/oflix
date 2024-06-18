@@ -3,81 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Nexus IA v1.1</title>
+    <title>Nexus IA - Moteur de Recherche Intelligent</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            background-color: #f4f4f4;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
-        .results-container {
-            max-width: 800px;
-            margin: auto;
+        header {
+            background: linear-gradient(to right, #6200ea, #3700b3);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+            position: relative;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+            font-weight: bold;
+        }
+        header p {
+            margin: 10px 0 0;
+            font-size: 1.2em;
+        }
+        nav {
+            background-color: #ffffff;
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+            margin-top: -30px;
+            position: relative;
+            z-index: 1;
+        }
+        nav a {
+            color: #6200ea;
+            margin: 0 20px;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #3700b3;
+        }
+        main {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex: 1;
+        }
+        section {
+            margin: 40px 0;
+            padding: 30px;
             background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 25px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
         }
-        .result {
+        section:hover {
+            transform: translateY(-10px);
+        }
+        section h2 {
+            text-align: center;
+            color: #6200ea;
+            font-size: 2.5em;
             margin-bottom: 20px;
         }
-        .result h2 {
-            font-size: 20px;
-            margin: 0;
+        section p {
+            text-align: justify;
+            font-size: 1.2em;
+            line-height: 1.8em;
         }
-        .result p {
-            font-size: 16px;
-            color: #555;
+        section a {
+            color: #6200ea;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        footer {
+            background-color: #6200ea;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            border-top-left-radius: 50px;
+            border-top-right-radius: 50px;
         }
     </style>
 </head>
 <body>
-
-<div class="results-container">
+    <header>
+        <h1>Bienvenue sur Nexus IA</h1>
+        <p>Votre moteur de recherche intelligent alimenté par l'IA</p>
+    </header>
+    <nav>
+        <a href="#home">Accueil</a>
+        <a href="#about">À Propos</a>
+        <a href="#services">Accès à Nexus IA</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <main>
+        <section id="home">
+            <h2>Accueil</h2>
+            <p><div class="results-container">
     <h1>Faite vos recherches avec Nexus IA</h1>
     <h5>Toute les recherches sont optimisé par Google & Nexus IA </h5>
     <div class="result">
-        <h2><script async src="https://cse.google.com/cse.js?cx=076a5f70a5c72440d">
-</script>
-<div class="gcse-search"></div></h2>
+        <h2><script async src="https://cse.google.com/cse.js?cx=076a5f70a5c72440d"></p>
+        </section>
     
-    </div>
-    <div class="result">
-        
-        <p>  <!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lien en Bouton</title>
-    <style>
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            font-size: 16px;
-            color: white;
-            background-color: #007BFF;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-align: center;
-            text-decoration: none;
-        }
-        .btn:hover {
-            background-color: #0056b3;
-        }
-    </style>
-</head>
-<body>
-
-<a href="https://nexus-ia.netlify.app/" class="btn">Revenir en arrière</a>
-
-</body>
-</html>
-</p>
-    </div>
-    <!-- Ajoutez plus de résultats ici -->
-</div>
-
+    </main>
+    <footer>
+        <p>&copy; 2024 Nexus IA. Tous droits réservés.</p>
+    </footer>
 </body>
 </html>
