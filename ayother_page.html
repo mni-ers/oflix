@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OmniVerse - User Dashboard</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background: linear-gradient(to right, #000000, #3700b3);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+            position: relative;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+            font-weight: bold;
+        }
+        header p {
+            margin: 10px 0 0;
+            font-size: 1.2em;
+        }
+        nav {
+            background-color: #ffffff;
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+            margin-top: -30px;
+            position: relative;
+            z-index: 1;
+        }
+        nav a {
+            color: #3700b3;
+            margin: 0 20px;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #3700b3;
+        }
+        main {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex: 1;
+        }
+        section {
+            margin: 40px 0;
+            padding: 30px;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        section:hover {
+            transform: translateY(-10px);
+        }
+        section h2 {
+            text-align: center;
+            color: #3700b3;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        section p {
+            text-align: justify;
+            font-size: 1.2em;
+            line-height: 1.8em;
+        }
+        section a {
+            color: #3700b3;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        footer {
+            background-color: #3700b3;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            border-top-left-radius: 50px;
+            border-top-right-radius: 50px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>OmniVerse - Tableau de bord</h1>
+    </header>
+    <main>
+        <section id="user-info">
+            <h2>Votre profil</h2>
+            <form id="user-form">
+                <label for="first-name">Nom/ Prénom:</label>
+                <input type="text" id="first-name" name="firstName" required> <P>
+                
+                <label for="last-name">Âge:</label>
+                <input type="text" id="last-name" name="lastName" required> <P>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required> <P></P>
+                
+                <label for="password">Mot de passe:</label>
+                <input type="password" id="password" name="password" required> <p>
+                
+                <button type="submit">Sauvegarder</button>
+            </form>
+            <div id="user-details">
+                <!-- User details will be dynamically inserted here -->
+            </div>
+        </section>
+    </main>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const form = document.getElementById('user-form');
+        const userDetails = document.getElementById('user-details');
+    
+        // Load user data from localStorage if available
+        const loadUserData = () => {
+            const user = JSON.parse(localStorage.getItem('user'));
+            if (user) {
+                document.getElementById('first-name').value = user.firstName;
+                document.getElementById('last-name').value = user.lastName;
+                document.getElementById('email').value = user.email;
+                document.getElementById('password').value = user.password;
+                displayUserDetails(user);
+            }
+        };
+    
+        const displayUserDetails = (user) => {
+            userDetails.innerHTML = `
+                <h3>Informations enregistrées</h3>
+                <p><strong>Prénom/ Nom:</strong> ${user.firstName}</p>
+                <p><strong>Âge:</strong> ${user.lastName}</p>
+                <p><strong>Email:</strong> ${user.email}</p>
+            `;
+        };
+    
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const user = {
+                firstName: document.getElementById('first-name').value,
+                lastName: document.getElementById('last-name').value,
+                email: document.getElementById('email').value,
+                password: document.getElementById('password').value
+            };
+            localStorage.setItem('user', JSON.stringify(user));
+            displayUserDetails(user);
+            form.reset();
+            alert('User information saved successfully!');
+        });
+    
+        loadUserData();
+    });
+     </script>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 OmniVerse. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>
