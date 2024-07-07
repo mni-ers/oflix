@@ -3,155 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> OmniVerse </title>
+    <title>OmniVerse</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #ff6e7f, #bfe9ff);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
+        .login-box {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
 
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: #000;
-    overflow: hidden;
-}
+        .login-box h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
 
-.login-box {
-    position: relative;
-    width: 400px;
-    height: 450px;
-    background: #191919;
-    border-radius: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+        .input-box {
+            position: relative;
+            margin-bottom: 30px;
+        }
 
-h2 {
-    font-size: 2em;
-    color: #fff;
-    text-align: center;
-    transition: .5s ease;
-}
+        .input-box .icon {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 10px;
+            color: #666;
+        }
 
-.input-box {
-    position: relative;
-    width: 310px;
-    margin: 30px 0;
-}
+        .input-box input {
+            width: 100%;
+            padding: 10px 10px 10px 40px;
+            border: none;
+            border-bottom: 2px solid #ccc;
+            outline: none;
+            background: none;
+            font-size: 16px;
+            color: #333;
+        }
 
-.input-box .input-line {
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 100%;
-    height: 2.5px;
-    background: #fff;
-    transition: .5s ease;
-}
+        .input-box label {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 40px;
+            pointer-events: none;
+            transition: 0.5s;
+            color: #666;
+        }
 
-.input-box label {
-    position: absolute;
-    top: 50%;
-    left: 5px;
-    transform: translateY(-50%);
-    font-size: 1em;
-    color: #fff;
-    pointer-events: none;
-    transition: .5s ease;
-}
+        .input-box input:focus ~ label,
+        .input-box input:valid ~ label {
+            top: -5px;
+            left: 30px;
+            color: #ff6e7f;
+            font-size: 12px;
+        }
 
-.input-box input:focus~label,
-.input-box input:valid~label {
-    top: -5px;
-}
+        .input-box .input-line {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #ff6e7f;
+            transition: 0.5s;
+            opacity: 0;
+        }
 
+        .input-box input:focus ~ .input-line {
+            opacity: 1;
+        }
 
+        .remember-forgot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
 
-.input-box input {
-    width: 100%;
-    height: 50px;
-    background: transparent;
-    border: none;
-    outline: none;
-    font-size: 1em;
-    color: #fff;
-    padding: 0 35px 0 5px;
-    transition: .5s ease;
-}
+        .remember-forgot label {
+            color: #666;
+            font-size: 14px;
+        }
 
+        .remember-forgot a {
+            color: #ff6e7f;
+            text-decoration: none;
+            font-size: 14px;
+        }
 
-.input-box .icon {
-    position: absolute;
-    right: 8px;
-    color: #fff;
-    font-size: 1.2em;
-    line-height: 57px;
-    transition: .5s ease;
-}
+        .login-box a {
+            display: inline-block;
+            background: #ff6e7f;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
 
-.remember-forgot {
-    color: #fff;
-    font-size: .9em;
-    margin: -15px 0 15px;
-    display: flex;
-    justify-content: space-between;
-    transition: .5s ease;
-}
+        .login-box a:hover {
+            background: #ff3b5c;
+        }
 
-.remember-forgot label input {
-    accent-color: #fff;
-    margin-right: 3px;
-    transition: .5s ease;
-}
-
-.remember-forgot a {
-    color: #fff;
-    text-decoration: none;
-    transition: color .5s ease;
-}
-
-.remember-forgot a:hover {
-    text-decoration: underline;
-}
-
-button {
-    width: 100%;
-    height: 40px;
-    background: #fff;
-    border: none;
-    outline: none;
-    border-radius: 40px;
-    cursor: pointer;
-    font-size: 1em;
-    color: #191919;
-    font-weight: 500;
-    transition: .5s ease;
-}
-
-.register-link {
-    color: #fff;
-    font-size: .9em;
-    text-align: center;
-    margin: 25px 0 10px;
-    transition: .5s ease;
-}
+        footer {
+            position: fixed;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+            color: #fff;
+        }
     </style>
 </head>
 <body>
-    <div class="login-light"></div>
     <div class="login-box">
+        <h2>OmniVerse - Connexion</h2>
         <form action="#">
-
-
-            <h2>Connexion</h2>
             <div class="input-box">
                 <span class="icon">
                     <ion-icon name="mail"></ion-icon>
@@ -170,13 +149,17 @@ button {
             </div>
             <div class="remember-forgot">
                 <label><input type="checkbox"> Êtes-vous un humain ?</label>
-                <a href="#"></a>
-            
+                
+            </div>
             <a href="https://omni-verse.netlify.app/">Se connecter</a>
-
+        </form>
+    </div>
 
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-</body>
 
+    <footer>
+        <p>&copy; 2024 OmniVerse. Tous droits réservés.</p>
+    </footer>
+</body>
 </html>
