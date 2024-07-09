@@ -3,162 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OmniVerse</title>
+    <title> OmniVerse </title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(to right, #ff6e7f, #bfe9ff);
             margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background: linear-gradient(to right, #000000, #3700b3);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+            position: relative;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+            font-weight: bold;
+        }
+        header p {
+            margin: 10px 0 0;
+            font-size: 1.2em;
+        }
+        nav {
+            background-color: #ffffff;
             display: flex;
             justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
-        .login-box {
-            background: #ffffff;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            width: 300px;
-            text-align: center;
-        }
-
-        .login-box h2 {
-            margin-bottom: 20px;
-            color: #333;
-        }
-
-        .input-box {
+            padding: 15px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+            margin-top: -30px;
             position: relative;
-            margin-bottom: 30px;
+            z-index: 1;
         }
-
-        .input-box .icon {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            left: 10px;
-            color: #666;
-        }
-
-        .input-box input {
-            width: 100%;
-            padding: 10px 10px 10px 4px;
-            border: none;
-            border-bottom: 2px solid #969696;
-            outline: none;
-            background: none;
-            font-size: 16px;
-            color: #333;
-        }
-
-        .input-box label {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            left: 40px;
-            pointer-events: none;
-            transition: 0.5s;
-            color: #666;
-        }
-
-        .input-box input:focus ~ label,
-        .input-box input:valid ~ label {
-            top: -5px;
-            left: 30px;
-            color: #ff6e7f;
-            font-size: 12px;
-        }
-
-        .input-box .input-line {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: #969696;
-            transition: 0.5s;
-            opacity: 0;
-        }
-
-        .input-box input:focus ~ .input-line {
-            opacity: 1;
-        }
-
-        .remember-forgot {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
-        }
-
-        .remember-forgot label {
-            color: #666;
-            font-size: 14px;
-        }
-
-        .remember-forgot a {
-            color: #ff6e7f;
+        nav a {
+            color: #3700b3;
+            margin: 0 20px;
             text-decoration: none;
-            font-size: 14px;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: color 0.3s;
         }
-
-        .login-box a {
-            display: inline-block;
-            background: #ff6e7f;
-            color: #fff;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: background 0.3s;
+        nav a:hover {
+            color: #3700b3;
         }
-
-        .login-box a:hover {
-            background: #ff3b5c;
+        main {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex: 1;
         }
-
-        footer {
-            position: fixed;
-            bottom: 10px;
-            width: 100%;
+        section {
+            margin: 40px 0;
+            padding: 30px;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        section:hover {
+            transform: translateY(-10px);
+        }
+        section h2 {
             text-align: center;
-            color: #fff;
+            color: #3700b3;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        section p {
+            text-align: justify;
+            font-size: 1.2em;
+            line-height: 1.8em;
+        }
+        section a {
+            color: #3700b3;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        footer {
+            background-color: #3700b3;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            border-top-left-radius: 50px;
+            border-top-right-radius: 50px;
         }
     </style>
 </head>
 <body>
-    <div class="login-box">
-        <h2>OmniVerse - Connexion</h2>
-        <form action="#">
-            <div class="input-box">
-                <span class="icon">
-                    <ion-icon name="mail"></ion-icon>
-                </span>
-                <input type="email" required>
-                <label>Email</label>
-                <div class="input-line"></div>
-            </div>
-            <div class="input-box">
-                <span class="icon">
-                    <ion-icon name="lock-closed"></ion-icon>
-                </span>
-                <input type="password" required>
-                <label>Mot de passe</label>
-                <div class="input-line"></div>
-            </div>
-            <div class="remember-forgot">
-                <label><input type="checkbox"> Êtes-vous un humain ?</label>
-            </div>
-            <a href="https://omni-verse.netlify.app/another_page.html">Se connecter</a>
-        </form>
-    </div>
+    <header>
+        <h1> OmniVerse - v1.0</h1> 
+        <h5> Votre moteur de recherche pour explorer l'infini </h5>
+            
+        <script src="script.js"></script>
+
+    </header>
+    <nav>
+
+<a href="https://omni-verse.netlify.app/search_results?">Conditions</a>
+<a href="https://omni-verse.netlify.app/autre_page.html">Connexion</a>
+
+        
+    </nav>
+    <main>
+        <section id="home">
+            <h2>Accueil</h2>
+            <p><div class="results-container">
+        
+  <script async src="https://cse.google.com/cse.js?cx=076a5f70a5c72440d">
+</script>
+<div class="gcse-search"></div>
+<h5>Toute les recherches sont optimisé par Google & OmniVerse </h5>
+
+<h5>✔ Aucun historique de recherche <p></p>
+    ✔ 100 % gratuit <p></p>
+    ✔ Vos informations sont gardées secrètes <p></p>
+
+</h5>
+               
+    </main>
 
     <footer>
         <p>&copy; 2024 OmniVerse. Tous droits réservés.</p>
     </footer>
-
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
