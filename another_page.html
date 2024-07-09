@@ -3,136 +3,261 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> OmniVerse </title>
+    <title>Météo en Direct</title>
     <style>
         body {
-            margin: 0;
             font-family: 'Arial', sans-serif;
-            background-color: #f0f2f5;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-        header {
-            background: linear-gradient(to right, #000000, #3700b3);
-            color: white;
-            padding: 40px 0;
-            text-align: center;
-            border-bottom-left-radius: 50px;
-            border-bottom-right-radius: 50px;
-            position: relative;
-        }
-        header h1 {
+            background: #121212;
+            color: #e0e0e0;
             margin: 0;
-            font-size: 3em;
-            font-weight: bold;
-        }
-        header p {
-            margin: 10px 0 0;
-            font-size: 1.2em;
-        }
-        nav {
-            background-color: #ffffff;
             display: flex;
             justify-content: center;
-            padding: 15px 0;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            border-bottom-left-radius: 50px;
-            border-bottom-right-radius: 50px;
-            margin-top: -30px;
-            position: relative;
-            z-index: 1;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
         }
-        nav a {
-            color: #3700b3;
-            margin: 0 20px;
-            text-decoration: none;
-            font-size: 1.2em;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-        nav a:hover {
-            color: #3700b3;
-        }
-        main {
-            padding: 40px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-            flex: 1;
-        }
-        section {
-            margin: 40px 0;
-            padding: 30px;
-            background: white;
-            border-radius: 25px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
-        section:hover {
-            transform: translateY(-10px);
-        }
-        section h2 {
+
+        .header {
+            width: 100%;
+            background: #1e1e1e;
+            padding: 10px;
             text-align: center;
-            color: #3700b3;
-            font-size: 2.5em;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            z-index: 1;
+            position: fixed;
+            top: 0;
+        }
+
+        .header h2 {
+            margin: 0;
+            color: #00acc1;
+        }
+
+        .container {
+            text-align: center;
+            background: #1e1e1e;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            max-width: 400px;
+            margin-top: 80px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #00acc1;
+        }
+
+        form {
             margin-bottom: 20px;
         }
-        section p {
-            text-align: justify;
-            font-size: 1.2em;
-            line-height: 1.8em;
+
+        input {
+            padding: 10px;
+            width: calc(100% - 22px);
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            background: #333;
+            color: #e0e0e0;
         }
-        section a {
-            color: #3700b3;
-            text-decoration: none;
+
+        select {
+            padding: 10px;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            background: #333;
+            color: #e0e0e0;
+            appearance: none;
+            background-image: url('data:image/svg+xml;charset=UTF-8,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23e0e0e0%27 stroke-width=%272%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27%3e%3cpolyline points=%276 9 12 15 18 9%27/%3e%3c/svg%3e');
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #00acc1;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #007c91;
+        }
+
+        #weatherResult {
+            margin-top: 20px;
+        }
+
+        .result-item {
+            margin: 10px 0;
+        }
+
+        .result-item span {
+            display: inline-block;
+            width: 120px;
             font-weight: bold;
         }
-        footer {
-            background-color: #3700b3;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-            border-top-left-radius: 50px;
-            border-top-right-radius: 50px;
+
+        .footer {
+            margin-top: 20px;
+            color: #888;
+            font-size: 12px;
+        }
+
+        a {
+            color: #00acc1;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1> OmniVerse - v1.0</h1> 
-        <h5> Votre moteur de recherche pour explorer l'infini </h5>
-            
-        <script src="script.js"></script>
+    <div class="header">
+        <h2>MétéoLive v1.0</h2>
+    </div>
+    <div class="container">
+        <h1>Météo en Direct</h1>
+        <form id="weatherForm">
+            <input type="text" id="city" placeholder="Entrez le nom de la ville" required>
+            <select id="infoType">
+                <option value="all">Tout</option>
+                <option value="temperature">Température</option>
+                <option value="humidity">Humidité</option>
+                <option value="condition">Condition</option>
+                <option value="wind">Vent</option>
+                <option value="sunrise">Lever du soleil</option>
+                <option value="sunset">Coucher du soleil</option>
+            </select>
+            <button type="submit">Obtenir la météo</button>
+        </form>
+        <div id="weatherResult">
+    </div>
+    <script>
+        document.getElementById('weatherForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const city = document.getElementById('city').value;
+            const infoType = document.getElementById('infoType').value;
+            getWeather(city, infoType);
+        });
 
-    </header>
-    <nav>
+        function convertTimeTo24HourFormat(time) {
+            const [timePart, modifier] = time.split(' ');
+            let [hours, minutes] = timePart.split(':');
 
-<a href="https://omni-verse.netlify.app/contact_page.html">Conditions</a>
-<a href="https://omni-verse.netlify.app/nouvelle_page.html">Mon espace</a>
+            if (modifier === 'PM' && hours !== '12') {
+                hours = parseInt(hours, 10) + 12;
+            } else if (modifier === 'AM' && hours === '12') {
+                hours = '00';
+            }
 
-        
-    </nav>
-    <main>
-        <section id="home">
-            <h2>Accueil</h2>
-            <p><div class="results-container">
-        
-  <script async src="https://cse.google.com/cse.js?cx=076a5f70a5c72440d">
-</script>
-<div class="gcse-search"></div>
-<h5>Toute les recherches sont optimisé par Google & OmniVerse </h5>
+            return `${hours}:${minutes}`;
+        }
 
-<h5>✔ Aucun historique de recherche <p></p>
-    ✔ 100 % gratuit <p></p>
-    ✔ Vos informations sont gardées secrètes <p></p>
+        function translateConditionToFrench(condition) {
+            const conditionsMap = {
+                'Clear': 'Dégagé',
+                'Partly Cloudy': 'Partiellement nuageux',
+                'Cloudy': 'Nuageux',
+                'Overcast': 'Couvert',
+                'Mist': 'Brume',
+                'Patchy rain possible': 'Possibilité d\'averses',
+                'Patchy snow possible': 'Chutes de neige possibles',
+                'Patchy sleet possible': 'Pluies verglaçantes possibles',
+                'Patchy freezing drizzle possible': 'Bruines verglaçantes possibles',
+                'Thundery outbreaks possible': 'Orages possibles',
+                'Blowing snow': 'Poudrerie',
+                'Blizzard': 'Blizzard',
+                'Fog': 'Brouillard',
+                'Freezing fog': 'Brouillard givrant',
+                'Patchy light drizzle': 'Bruine légère',
+                'Light drizzle': 'Bruine légère',
+                'Freezing drizzle': 'Bruine verglaçante',
+                'Heavy freezing drizzle': 'Bruine verglaçante intense',
+                'Patchy light rain': 'Pluie légère',
+                'Light rain': 'Pluie légère',
+                'Moderate rain at times': 'Pluie modérée par moments',
+                'Moderate rain': 'Pluie modérée',
+                'Heavy rain at times': 'Pluie forte par moments',
+                'Heavy rain': 'Pluie forte',
+                'Light freezing rain': 'Pluie verglaçante légère',
+                'Moderate or heavy freezing rain': 'Pluie verglaçante modérée ou forte',
+                'Light sleet': 'Neige fondue légère',
+                'Moderate or heavy sleet': 'Neige fondue modérée ou forte',
+                'Patchy light snow': 'Neige légère',
+                'Light snow': 'Neige légère',
+                'Patchy moderate snow': 'Neige modérée',
+                'Moderate snow': 'Neige modérée',
+                'Patchy heavy snow': 'Neige forte',
+                'Heavy snow': 'Neige forte',
+                'Ice pellets': 'Granules de glace',
+                'Light rain shower': 'Averse de pluie légère',
+                'Moderate or heavy rain shower': 'Averse de pluie modérée ou forte',
+                'Torrential rain shower': 'Averse de pluie torrentielle',
+                'Light sleet showers': 'Averses de neige fondue légère',
+                'Moderate or heavy sleet showers': 'Averses de neige fondue modérée ou forte',
+                'Light snow showers': 'Averses de neige légère',
+                'Moderate or heavy snow showers': 'Averses de neige modérée ou forte',
+                'Light showers of ice pellets': 'Averses de granules de glace légère',
+                'Moderate or heavy showers of ice pellets': 'Averses de granules de glace modérée ou forte',
+                'Patchy light rain with thunder': 'Pluie légère avec tonnerre',
+                'Moderate or heavy rain with thunder': 'Pluie modérée ou forte avec tonnerre',
+                'Patchy light snow with thunder': 'Neige légère avec tonnerre',
+                'Moderate or heavy snow with thunder': 'Neige modérée ou forte avec tonnerre'
+            };
 
-</h5>
-               
-    </main>
+            return conditionsMap[condition] || condition;
+        }
 
-    <footer>
-        <p>&copy; 2024 OmniVerse. Tous droits réservés.</p>
-    </footer>
+        function getWeather(city, infoType) {
+            const url = `https://wttr.in/${city}?format=j1`;
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    const weather = data.current_condition[0];
+                    const astronomy = data.weather[0].astronomy[0];
+                    let result = `<h2>Météo pour ${city}</h2>`;
+                    
+                    if (infoType === 'all' || infoType === 'temperature') {
+                        result += `<div class="result-item"><span>Température:</span> ${weather.temp_C}°C</div>`;
+                    }
+                    if (infoType === 'all' || infoType === 'humidity') {
+                        result += `<div class="result-item"><span>Humidité:</span> ${weather.humidity}%</div>`;
+                    }
+                    if (infoType === 'all' || infoType === 'condition') {
+                        const conditionFr = translateConditionToFrench(weather.weatherDesc[0].value);
+                        result += `<div class="result-item"><span>Condition:</span> ${conditionFr}</div>`;
+                    }
+                    if (infoType === 'all' || infoType === 'wind') {
+                        result += `<div class="result-item"><span>Vent:</span> ${weather.windspeedKmph} km/h</div>`;
+                    }
+                    if (infoType === 'all' || infoType === 'sunrise') {
+                        const sunrise24 = convertTimeTo24HourFormat(astronomy.sunrise);
+                        result += `<div class="result-item"><span>Lever du soleil:</span> ${sunrise24}</div>`;
+                    }
+                    if (infoType === 'all' || infoType === 'sunset') {
+                        const sunset24 = convertTimeTo24HourFormat(astronomy.sunset);
+                        result += `<div class="result-item"><span>Coucher du soleil:</span> ${sunset24}</div>`;
+                    }
+                    
+                    document.getElementById('weatherResult').innerHTML = result;
+                })
+                .catch(error => {
+                    console.error('Erreur:', error);
+                    document.getElementById('weatherResult').innerHTML = '<p>Impossible de récupérer la météo. Veuillez réessayer plus tard.</p>';
+                });
+        }
+    </script>
 </body>
 </html>
