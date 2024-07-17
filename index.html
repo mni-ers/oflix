@@ -3,143 +3,180 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> OmniVerse </title>
+    <title>StreamFlix</title>
     <style>
         body {
             margin: 0;
-            font-family: 'Arial', sans-serif;
-            background-color: #f0f2f5;
-            color: #333;
+            font-family: Arial, sans-serif;
+            background-color: #141414;
+            color: #ffffff;
+        }
+
+        .header {
             display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #141414;
         }
-        header {
-            background: linear-gradient(to right, #000000, #3700b3);
-            color: white;
-            padding: 40px 0;
-            text-align: center;
-            border-bottom-left-radius: 50px;
-            border-bottom-right-radius: 50px;
-            position: relative;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 3em;
+
+        .logo {
+            font-size: 24px;
             font-weight: bold;
         }
-        header p {
-            margin: 10px 0 0;
-            font-size: 1.2em;
+
+        .nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
         }
-        nav {
-            background-color: #ffffff;
+
+        .nav ul li {
+            margin-left: 20px;
+        }
+
+        .nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .hero {
             display: flex;
             justify-content: center;
-            padding: 15px 0;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            border-bottom-left-radius: 50px;
-            border-bottom-right-radius: 50px;
-            margin-top: -30px;
-            position: relative;
-            z-index: 1;
-        }
-        nav a {
-            color: #3700b3;
-            margin: 0 20px;
-            text-decoration: none;
-            font-size: 1.2em;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-        nav a:hover {
-            color: #3700b3;
-        }
-        main {
-            padding: 40px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-            flex: 1;
-        }
-        section {
-            margin: 40px 0;
-            padding: 30px;
-            background: white;
-            border-radius: 25px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
-        section:hover {
-            transform: translateY(-10px);
-        }
-        section h2 {
+            align-items: center;
+            height: 70vh;
+            background: url('hero.jpg') no-repeat center center/cover;
             text-align: center;
-            color: #3700b3;
-            font-size: 2.5em;
+            color: #ffffff;
+        }
+
+        .hero-content {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin: 0;
+        }
+
+        .hero p {
+            font-size: 24px;
+            margin: 10px 0;
+        }
+
+        .hero button {
+            padding: 10px 20px;
+            font-size: 18px;
+            color: #ffffff;
+            background-color: #e50914;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        .content h2 {
+            font-size: 32px;
             margin-bottom: 20px;
         }
-        section p {
-            text-align: justify;
-            font-size: 1.2em;
-            line-height: 1.8em;
+
+        .grid {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
         }
-        section a {
-            color: #3700b3;
-            text-decoration: none;
-            font-weight: bold;
+
+        .card {
+            background-color: #333333;
+            border-radius: 10px;
+            overflow: hidden;
+            width: calc(33.333% - 20px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
-        footer {
-            background-color: #3700b3;
-            color: white;
+
+        .card img {
+            width: 100%;
+            height: auto;
+        }
+
+        .card h3 {
+            padding: 10px;
+            font-size: 20px;
+            margin: 0;
+        }
+
+        .footer {
+            background-color: #141414;
             text-align: center;
-            padding: 20px 0;
-            border-top-left-radius: 50px;
-            border-top-right-radius: 50px;
+            padding: 20px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .footer p {
+            margin: 0;
+            font-size: 16px;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1> OmniVerse - v1.0</h1> 
-        <h5> Explorez le monde avec notre moteur de recherche intuitif <p></p>
-            et restez informé des conditions météorologiques actuelles avec notre service météo dédié.</h5>
-            
-        <script src="script.js"></script>
-
+    <header class="header">
+        <div class="logo">StreamFlix</div>
+        <nav class="nav">
+            <ul>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">Films</a></li>
+            </ul>
+        </nav>
     </header>
-    <nav>
 
-        <a href="https://omni-verse.netlify.app/search_results?">Conditions</a>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Bienvenue sur StreamFlix</h1>
+            <p>Regardez vos films préférés en un clic.</p>
 
+            <style>
+        .red-button {
+            padding: 10px 20px;
+            font-size: 18px;
+            color: #ffffff;
+            background-color: #e50914;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <a href="https://example.com" class="red-button">Commencez maintenant</a>
+        </div>
+    </section>
 
-        
-    </nav>
-    <main>
-        <section id="home">
-            <h2>Accueil</h2>
-            <p><div class="results-container">
-        
-    <a href="https://omni-verse.netlify.app/another_page">Météo</a> <p></p>
-    <h5> ✔ Fournit des prévisions météo précises <p></p> 
-         ✔ Mises à jour régulières des conditions météo <p></p>
-         ✔ Facilement accessible à tous <p></p>
-    </h5>
+    <footer class="footer">
+        <p>&copy; 2024 StreamFlix. Tous droits réservés.</p>
+    </footer>
 
-
-    <p></p>
-    <a href="https://omni-verse.netlify.app/autre_page.html">Moteur de recherche</a> <p>
-        <h5>✔ Fournit des résultats pertinents <p></p>
-            ✔ Retourne les résultats rapidement <p></p>
-            ✔ Explore une large gamme de contenus <p></p>
-        
-        </h5>
-    </p>
-
-</h5>
-               
-    </main>
-
-    <footer>
+    <script>
+        // Vous pouvez ajouter des interactions JavaScript ici
+        document.addEventListener('DOMContentLoaded', () => {
+            const heroButton = document.querySelector('.hero button');
+            heroButton.addEventListener('click', () => {
+                alert('Commencez à regarder maintenant!');
+            });
+        });
+    </script>
+</body>
+</html>
         <p>&copy; 2024 OmniVerse. Tous droits réservés.</p>
     </footer>
 </body>
